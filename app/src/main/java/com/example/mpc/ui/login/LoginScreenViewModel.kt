@@ -23,9 +23,13 @@ class LoginScreenViewModel @Inject constructor(
     val inProgress = mutableStateOf(false)
     private val _uiState = MutableStateFlow(LoginScreenUiState())
     val uiState = _uiState.asStateFlow()
-    val isAdmin= mutableStateOf(true)
+    val isAdmin = mutableStateOf(false)
 
     fun loginWithEmail(onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        if (uiState.value.email == "t@gmail.com")
+            isAdmin.value = true
+        else
+            isAdmin.value = false
         inProgress.value = true
         auth.signInWithEmailAndPassword(uiState.value.email, uiState.value.password)
             .addOnSuccessListener {

@@ -12,7 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import com.example.mpc.ui.addStudent.OutlinedTextFieldWithHeading
+import com.example.mpc.ui.admin.addStudent.OutlinedTextFieldWithHeading
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,7 +20,7 @@ fun CustomDropdownMenu(
     text: String,
     placeholder: String,
     modifier: Modifier = Modifier,
-    value: String = "I",
+    value: String = "",
     onValueChange: (String) -> Unit,
     options: List<String>
 ) {

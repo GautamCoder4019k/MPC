@@ -24,6 +24,8 @@ fun MyOutlinedTextField(
     modifier: Modifier = Modifier,
     readOnly: Boolean = false,
     placeholder: String = "",
+    minLines: Int = 1,
+    maxLines: Int = 1,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -32,10 +34,12 @@ fun MyOutlinedTextField(
         onValueChange = onValueChange,
         modifier = modifier.fillMaxWidth(0.7f),
         readOnly = readOnly,
+        minLines = minLines,
+        maxLines = maxLines,
         visualTransformation = VisualTransformation.None,
         interactionSource = interactionSource,
         enabled = true,
-        singleLine = true,
+        singleLine = false,
         keyboardOptions = keyboardOptions,
         decorationBox = @Composable { innerTextField ->
             OutlinedTextFieldDefaults.DecorationBox(
@@ -48,7 +52,7 @@ fun MyOutlinedTextField(
                         modifier = Modifier.alpha(0.2f)
                     )
                 },
-                singleLine = true,
+                singleLine = false,
                 interactionSource = interactionSource,
                 visualTransformation = VisualTransformation.None,
                 enabled = true,
